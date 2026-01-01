@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login with try and catch</title>
+    <style>
+        body{
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    .container{
+        border-radius:5px;
+        height:180px;
+        width:250px;
+        background-color:lightgray;
+        text-align:center;
+        color:white;
+    }
+    input{
+        padding:10px;
+        border:none;
+        margin-top:40px;
+        margin-bottom:10px;
+        border-radius:5px
+    }
+    .submit{
+        padding:7px 20px;
+        background-color:dodgerblue;
+        border:none;
+        color:white;
+        border-radius:3px;
+        font-size:16px;
+    }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container" id="loginsection">
+     
+        <input type="text" class="username" placeholder="Enter your name ">
+        <button class="submit" onclick="validation()">
+            login
+        </button>
+        
+        <h2 class="msg">
+            
+        </h2>
+        </div>
+    
+</body>
+
+<script>
+    
+       
+     function validation(){
+  const msg = document.querySelector('.msg');
+   const user = document.querySelector('.username').value.trim();
+   try{
+       
+       if( !user ){
+           throw new Error('Username can not be empy');
+           
+       }
+       
+       if(user.length < 3){
+           throw new Error('User does not less than 3');
+           
+       }
+       msg.style.color='green';
+       msg.innerText = 'You inter valid';
+       msg.style.fontSize ='15px';
+   }catch(errors){
+     msg.style.color = 'red';
+     msg.style.fontSize ='15px';
+     msg.innerText = errors.message ;
+   }
+     }
+</script>
+</html>
